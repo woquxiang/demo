@@ -1,0 +1,117 @@
+{extend name="public/base" /}
+{block name='content'}
+{include file='public/content_header' /}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <!-- 表单头部 -->
+                <div class="box-header with-border">
+                    <div class="btn-group">
+                        <a class="btn flat btn-sm btn-default BackButton">
+                            <i class="fa fa-arrow-left"></i>
+                            返回
+                        </a>
+                    </div>
+                </div>
+                <form id="dataForm" class="form-horizontal dataForm" action="" method="post"
+                      enctype="multipart/form-data">
+                    <div class="box-body">
+
+
+
+                        <div class="form-group">
+                            <label for="IP" class="col-sm-2 control-label">IP</label>
+                            <div class="col-sm-10 col-md-4">
+                                <input maxlength="50" id="ip" name="ip" value="{$data.IP|default=''}"
+                                       class="form-control" placeholder="请输入IP">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website" class="col-sm-2 control-label">website</label>
+                            <div class="col-sm-10 col-md-4">
+                                <input maxlength="50" id="website" name="website" value="{$data.website|default=''}"
+                                       class="form-control" placeholder="请输入website">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="other" class="col-sm-2 control-label">other</label>
+                            <div class="col-sm-10 col-md-4">
+                                <input maxlength="50" id="other" name="other" value="{$data.other|default=''}"
+                                       class="form-control" placeholder="请输入other">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--表单底部-->
+                    <div class="box-footer">
+                        {:token()}
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10 col-md-4">
+                            {if !isset($data)}
+                            <div class="btn-group pull-right">
+                                <label class="createContinue">
+                                    <input type="checkbox" value="1" id="_create" name="_create"
+                                           title="继续添加数据">继续添加</label>
+                            </div>
+                            {/if}
+                            <div class="btn-group">
+                                <button type="submit" class="btn flat btn-info dataFormSubmit">
+                                    保存
+                                </button>
+                            </div>
+                            <div class="btn-group">
+                                <button type="reset" class="btn flat btn-default dataFormReset">
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    // $("#dataForm").validate({
+    //     rules: {
+    //         nickname: {
+    //             required: true,
+    //             minlength: 2
+    //         },
+    //         username: {
+    //             required: true,
+    //             minlength: 2
+    //         },
+    //         password: {
+    //             required: true,
+    //             minlength: 6
+    //         },
+    //     },
+    //     messages: {
+    //         nickname: {
+    //             required: "请输入昵称",
+    //             minlength: "名称长度不能小于2"
+    //         },
+    //         username: {
+    //             required: "请输入账号",
+    //             minlength: "用户名长度不能小于2"
+    //         },
+    //         password: {
+    //             required: "请输入密码",
+    //             minlength: "密码长度不能小于6"
+    //         },
+    //     },
+    //
+    // });
+</script>
+
+{/block}
+
